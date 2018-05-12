@@ -44,12 +44,13 @@ The pages of the virtual address space have been placed at different locations
 throughout physical memory, and when the OS wishes to place the 64-byte
 address space into our eight-page physical memory, it simply finds 4 free pages
 
+# Page Table
+
 OS usually keeps a _per-process_ data structure known as a **_page table_**.
  
-The major role of the page table is to store address translations for each of the virtual pages of the address space, thus letting us know where in physical memory each page resides
+Page table stores address translations for each of the pages in the address space, and its respective physical memory address space each page resides
 
-Let’s imagine the process with that tiny address space (64 bytes) is performing
-a memory access:
+Imagine the process with that tiny address space (64 bytes) is performing a memory access:
 
 movl <virtual address>, %eax
 
@@ -175,5 +176,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTkzMDk1MTBdfQ==
+eyJoaXN0b3J5IjpbMTQxNDE3OTU2MV19
 -->
