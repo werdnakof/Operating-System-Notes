@@ -1,12 +1,12 @@
 # Paging
 
-	Chopping up space into fixed-sized pieces
+	Chopping up virtual segment into fixed-sized pieces
 
 Instead of splitting up a process’s address space into some number of
 variable-sized virtual segments (e.g., code, heap, stack), we divide it into
  fixed-sized units, each of which is a **_Page_**.
 
-**Frames**: physical memory as an array of fixed-sized slots called page frames
+**Frames**: physical memory as an array of fixed-sized slots called frames
 
 Each of these frames can contain a single virtual-memory page.
 
@@ -25,7 +25,7 @@ with 4 pages of size 16-byte pages
 2 bits (2^2 = 4) needed minimum to select each page in a 4 page virtual address space
 
 The Physical memory consists of an array of fixed-sized slots, 
-In this case 8 page frames, making for a 128-byte physical memory
+consider 8 frames, making for a 128-byte physical memory
 
 | Space     | usage           | PFN          | PFN in binary |
 |-----------|-----------------|--------------|---------------|
@@ -38,18 +38,13 @@ In this case 8 page frames, making for a 128-byte physical memory
 | 96 - 111  | unused          | page frame 6 | 110           |
 | 112 - 127 | page 1 of AS    | page frame 7 | 111           |
 
-
 3 bits (2^3 = 8) needed minimum to select each page in a 8 page virtual address space
 
-the pages of the virtual address space have been placed at different locations
-throughout physical memory
+The pages of the virtual address space have been placed at different locations
+throughout physical memory, and when the OS wishes to place the 64-byte
+address space into our eight-page physical memory, it simply finds 4 free pages
 
-when the OS wishes to place our tiny 64-byte
-address space into our eight-page physical memory, it simply finds four free pages
-
-(Advantages of paging: flexibility and simplicity)
-
-OS usually keeps a per-process data structure known as a page table.
+OS usually keeps a _per-process_ data structure known as a **page table.
  
 The major role of the page table is to store address translations for each of the virtual pages of the address space, thus letting us know where in physical memory each page resides
 
@@ -180,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3OTc5MDU0N119
+eyJoaXN0b3J5IjpbMTg3MDc5OTQyNF19
 -->
