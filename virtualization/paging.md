@@ -62,7 +62,7 @@ To translate virtual address to physical address , it is split into 2 components
 
 Physical frame number (PFN) is what we want
 
-Using above example, for a virtual page size of 64 bytes- 4 pages of 16 bytes
+Using above example, for a virtual page size of 64 bytes, 4 pages of 16 bytes
 - The minimum no. bits required to achieve enough granularity to select each byte is 2^6 = 64
 - i.e. the virtual address needs to be 6 bits
 - 2 bits to represent which page
@@ -175,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc4MTAzMTU3XX0=
+eyJoaXN0b3J5IjpbNjIxMzc2NjYyXX0=
 -->
