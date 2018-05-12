@@ -44,7 +44,7 @@ The pages of the virtual address space have been placed at different locations
 throughout physical memory, and when the OS wishes to place the 64-byte
 address space into our eight-page physical memory, it simply finds 4 free pages
 
-OS usually keeps a _per-process_ data structure known as a **page table.
+OS usually keeps a _per-process_ data structure known as a **_page table_**.
  
 The major role of the page table is to store address translations for each of the virtual pages of the address space, thus letting us know where in physical memory each page resides
 
@@ -175,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MDc5OTQyNF19
+eyJoaXN0b3J5IjpbLTIwNTkzMDk1MTBdfQ==
 -->
