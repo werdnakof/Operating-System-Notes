@@ -3,7 +3,7 @@
 	Chopping up space into fixed-sized pieces
 
 Instead of splitting up a process’s address space into some number of
-variable-sized logical segments (e.g., code, heap, stack), we divide it into
+variable-sized virtual segments (e.g., code, heap, stack), we divide it into
  fixed-sized units, each of which is a **_Page_**.
 
 **Frames**: physical memory as an array of fixed-sized slots called page frames
@@ -11,7 +11,7 @@ variable-sized logical segments (e.g., code, heap, stack), we divide it into
 Each of these frames can contain a single virtual-memory page.
 
 Example:
-An address space of 64 bytes total in size, 
+An address space (AS) of 64 bytes total in size, 
 with 4 pages of size 16-byte pages
 (virtual pages 0, 1, 2, and 3)
 
@@ -25,18 +25,19 @@ with 4 pages of size 16-byte pages
 2 bits (2^2 = 4) needed minimum to select each page in a 4 page virtual address space
 
 The Physical memory consists of an array of fixed-sized slots, 
-In this case 8 page frames, 
- making for a 128-byte physical memory
+In this case 8 page frames, making for a 128-byte physical memory
 
-Space     | usage           | PFN          | PFN in binary
-0 - 15    | reserved for OS | page frame 0 | 000
-16 - 32   | unused          | page frame 1 | 001
-32 - 47   | page 3 of AS    | page frame 2 | 010
-48 - 63   | page 0 of AS    | page frame 3 | 011
-64 - 79   | unused          | page frame 4 | 100
-80 - 95   | page 2 of AS    | page frame 5 | 101
-96 - 111  | unused          | page frame 6 | 110
-112 - 127 | page 1 of AS    | page frame 7 | 111
+| Space     | usage           | PFN          | PFN in binary |
+|-----------|-----------------|--------------|---------------|
+| 0 - 15    | reserved for OS | page frame 0 | 000           |
+| 16 - 32   | unused          | page frame 1 | 001           |
+| 32 - 47   | page 3 of AS    | page frame 2 | 010           |
+| 48 - 63   | page 0 of AS    | page frame 3 | 011           |
+| 64 - 79   | unused          | page frame 4 | 100           |
+| 80 - 95   | page 2 of AS    | page frame 5 | 101           |
+| 96 - 111  | unused          | page frame 6 | 110           |
+| 112 - 127 | page 1 of AS    | page frame 7 | 111           |
+
 
 3 bits (2^3 = 8) needed minimum to select each page in a 8 page virtual address space
 
@@ -179,5 +180,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDM0MzY2NTVdfQ==
+eyJoaXN0b3J5IjpbLTY3OTc5MDU0N119
 -->
