@@ -22,7 +22,6 @@ with 4 pages of size 16-byte pages
 | 32 - 48 | page 2 | 10            |
 | 48 - 64 | page 3 | 11            |
 
-
 2 bits (2^2 = 4) needed minimum to select each page in a 4 page virtual address space
 
 The Physical memory consists of an array of fixed-sized slots, 
@@ -180,5 +179,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjE5NTQ2ODldfQ==
+eyJoaXN0b3J5IjpbLTE1MDM0MzY2NTVdfQ==
 -->
