@@ -86,7 +86,7 @@ The OS indexes the array by the VPN,
 and looks up the page-table entry (PTE) at that index,
 in order to find the desired physical frame number (PFN).
 
-The flow of getting physicla address from virtual address
+The flow of getting physicla address from virtual address:
 
 PageTableBaseRegister is the starting index of the page table
 
@@ -175,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2ODg4MzQ1MV19
+eyJoaXN0b3J5IjpbMTgxNzQ4ODg5MV19
 -->
