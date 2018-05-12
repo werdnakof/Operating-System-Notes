@@ -90,12 +90,12 @@ The flow of getting physicla address from virtual address:
 
 PageTableBaseRegister is the starting index of the page table
 
-  VPN = (VirtualAddress & VPN_MASK) >> SHIFT
-  PTEAddr = PageTableBaseRegister + (VPN * sizeof(PTE))
-  PFN = AccessMemory(PTEAddr)
-  offset = VirtualAddress & OFFSET_MASK
-  PhysAddr = (PFN << SHIFT) | offset
-  Register = AccessMemory(PhysAddr)
+	VPN = (VirtualAddress & VPN_MASK) >> SHIFT
+	PTEAddr = PageTableBaseRegister + (VPN * sizeof(PTE))
+	PFN = AccessMemory(PTEAddr)
+	offset = VirtualAddress & OFFSET_MASK
+	PhysAddr = (PFN << SHIFT) | offset
+	Register = AccessMemory(PhysAddr)
 
 In our example, VPN_MASK would be set to 0x30 (hex 30, or binary
 110000) which picks out the VPN bits from the full virtual address; 
@@ -175,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNzQ4ODg5MV19
+eyJoaXN0b3J5IjpbMTYwMDcwNjgxMV19
 -->
