@@ -48,7 +48,7 @@ address space into our eight-page physical memory, it simply finds 4 free pages
 
 OS usually keeps a _per-process_ data structure known as a **_page table_**.
  
-Page table stores address translations for each of the pages in the address space, and its respective physical memory address space each page resides
+Page table stores address translations for each of the pages in the address space, and its respective physical memory address space
 
 Imagine the process with that tiny address space (64 bytes) is performing a memory access:
 
@@ -56,8 +56,7 @@ movl <virtual address>, %eax
 
 i.e. load of the data from address <virtual address> into the register eax
 
-To translate this virtual address that the process generated to physical address , 
-we have to first split it into two components: 
+To translate virtual address to physical address , it is split into 2 components: 
 - the virtual page number (VPN), and
 - the offset within the page
 
@@ -176,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxNDE3OTU2MV19
+eyJoaXN0b3J5IjpbMzc4MTAzMTU3XX0=
 -->
