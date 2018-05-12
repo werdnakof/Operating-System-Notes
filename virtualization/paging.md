@@ -66,7 +66,7 @@ Using above example, for a virtual page size of 64 bytes, 4 pages of 16 bytes
 - The minimum no. bits required to achieve enough granularity to select each byte is 2^6 = 64
 - i.e. the virtual address needs to be 6 bits
 - 2 bits to represent which page
-- 4 bits to represent the offset from each page
+- 4 bits to represent the offset the page
 
 OS needs to translate the virutal address to physical address
 Example:
@@ -77,7 +77,7 @@ movl 21, $eax
 0101 -> 5th byte in 1st virtual page
 
 1st page resides in 112-127 physical page i.e. PFN 7 
-virtual address becomes 01 0101 to 111 0101
+virtual address becomes 01 0101 to 112 0101
 
 The page table is just a data structure that is used to map virtual addresses (virtual page numbers) to physical addresses (physical frame numbers). 
 
@@ -175,5 +175,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIxMzc2NjYyXX0=
+eyJoaXN0b3J5IjpbMTk2ODg4MzQ1MV19
 -->
