@@ -1,30 +1,38 @@
-paging - to chop up space into fixed-sized pieces
+p# Paging - to c
+
+	Chop up space into fixed-sized pieces
 
 Instead of splitting up a process’s address space into some number of
 variable-sized logical segments (e.g., code, heap, stack), we divide it into
-fixed-sized units, each of which is a page.
+ fixed-sized units, each of which is a page.
 
-physical memory as an array of fixed-sized slots called page frames
+**Frames**: physical memory as an array of fixed-sized slots called page frames
 
-each of these frames can contain a single virtual-memory page.
+eEach of these frames can contain a single virtual-memory page.
 
 Example:
 An address space,
-only 64 bytes total in size, 
-with four 16-byte pages
+only of 64 bytes total in size, 
+with four4 pages of size 16-byte pages
 (virtual pages 0, 1, 2, and 3)
 
-Space     | VPN    | VPN in binary
-0 - 16    | page 0 | 00
-16 - 32   | page 1 | 01
-32 - 48   | page 2 | 10
-48 - 64   | page 3 | 11
+| Space     | VPN    | VPN in binary
+ |
+|---------|--------|---------------|
+| 0 - 16    | page 0 | 00
+            |
+| 16 - 32   | page 1 | 01
+            |
+| 32 - 48   | page 2 | 10
+            |
+| 48 - 64   | page 3 | 11            |
+
 
 2 bits (2^2 = 4) needed minimum to select each page in a 4 page virtual address space
 
 The Physical memory consists of an array of fixed-sized slots, 
 In this case 8 page frames, 
-making for a 128-byte physical memory
+ making for a 128-byte physical memory
 
 Space     | usage           | PFN          | PFN in binary
 0 - 15    | reserved for OS | page frame 0 | 000
@@ -176,3 +184,6 @@ update.
 
 
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE4Njc1NzgzNzldfQ==
+-->
