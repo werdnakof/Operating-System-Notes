@@ -81,10 +81,8 @@ virtual address becomes 01 0101 to 112 0101
 
 The page table is just a data structure that is used to map virtual addresses (virtual page numbers) to physical addresses (physical frame numbers). 
 
-The simplest form is called a linear page table, which is just an array. 
-The OS indexes the array by the VPN, 
-and looks up the page-table entry (PTE) at that index,
-in order to find the desired physical frame number (PFN).
+The simplest form is called a **_Linear Page Table_**, which is just an array. 
+The OS indexes the array by the VPN,  and looks up the page-table entry (PTE) at that index, in order to find the desired physical frame number (PFN).
 
 | VPN | Index (VPN * sizeof(PTE)) | PFN          | PFN in binary |
 |-----|---------------------------|--------------|---------------|
@@ -93,10 +91,9 @@ in order to find the desired physical frame number (PFN).
 | 10  | 10 * sizeof(PTE)          | page frame 5 | 101           |
 | 11  | 11 * sizeof(PTE)          | page frame 2 | 010           |
 
-
 The flow of getting physicla address from virtual address:
 
-PageTableBaseRegister is the starting index of the page table
+	(PageTableBaseRegister is the starting index of the page table)
 
 	VPN = (VirtualAddress & VPN_MASK) >> SHIFT
 	PTEAddr = PageTableBaseRegister + (VPN * sizeof(PTE))
@@ -125,11 +122,20 @@ In addition a PTE has
 - Dirty bit indicates whether the page has been modified since it was brought into memory
 - reference bit (a.k.a. accessed bit) is sometimes used to track whether a page has been accessed, and is useful in determining which pages are popular and thus should be kept in memory
 
+### Tracing through a simple memory access example to demonstrate all of the resulting memory accesses that occur when using paging
 
-1024 movl $0x0, (%edi,%eax,4)
-1028 incl %eax
-1032 cmpl $0x03e8,%eax
-1036 jne 0x1024
+C code
+
+	int array[1000]; 
+	... 
+	for (i = 0; i < 1000; i++) array[i] = 0;
+
+Assembly Code
+
+	1024 movl $0x0, (%edi,%eax,4)
+	1028 incl %eax
+	1032 cmpl $0x03e8,%eax
+	1036 jne 0x1024
 
 virtual address space of size 64KB
 
@@ -152,7 +158,7 @@ Thus, we need mappings for these pages.
 Assume these virtual-to-physical mappings for the example: 
 (VPN 39 → PFN 7),(VPN 40 → PFN 8), (VPN 41 → PFN 9), (VPN 42 → PFN 10).
 
-each instruction fetch will generate two memory references:
+each instruction fetch will generate 2 memory references:
 - one to the page table to find the physical frame that the instruction resides within, and 
 - one to the instruction itself to fetch it to the CPU for processing
 
@@ -183,5 +189,5 @@ update.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0MTE0MzkzNiwxNjAwNzA2ODExXX0=
+eyJoaXN0b3J5IjpbMjk2MzczMDk0LDE2MDA3MDY4MTFdfQ==
 -->
